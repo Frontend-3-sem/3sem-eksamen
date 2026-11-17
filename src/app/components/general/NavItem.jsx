@@ -1,0 +1,15 @@
+// Utils
+
+// Next
+
+// Components
+
+const NavItem = () => {
+  return (
+    <>
+      <div></div>
+    </>
+  );
+};
+
+export default NavItem;

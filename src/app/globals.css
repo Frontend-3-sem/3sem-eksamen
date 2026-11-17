@@ -1,26 +1,72 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: oklch(14% 0 0);
+  --text: oklch(100% 0 0);
+  --accent1: oklch(65.3% 0.242 9.3);
+  --accent2: oklch(55.9% 0.235 329.1);
+  --subtle: oklch(34.1% 0 0);
+  --gradient: linear-gradient(
+    118deg,
+    var(--accent1) 7.75%,
+    var(--accent2) 98.44%
+  );
 }
 
 @theme inline {
+  /* Colors */
   --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-text: var(--text);
+  --color-accent1: var(--accent1);
+  --color-accent2: var(--accent2);
+  --color-subtle: var(--subtle);
+
+  /* Fonts */
+  --font-all: var(--font-ubuntu);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer components {
+  /* Fonts */
+  h1 {
+    font-size: 2.75rem;
+    font-weight: 700;
+    letter-spacing: 7.5%;
+    text-transform: uppercase;
+  }
+  h2 {
+    font-size: 2.375rem;
+    font-weight: 500;
+    letter-spacing: 7.5%;
+    text-transform: uppercase;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 2%;
+  }
+
+  p,
+  a {
+    font-size: 1.125rem;
+    font-weight: 500;
+    letter-spacing: 2%;
+    text-decoration: none;
+    color: var(--text);
+  }
+
+  /* Utils */
+  .stackcontainer {
+    display: grid;
+    grid-template-areas: "stack";
+    .stackitem {
+      grid-area: stack;
+    }
   }
 }
 
 body {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  font-family: var(--font-all);
 }
