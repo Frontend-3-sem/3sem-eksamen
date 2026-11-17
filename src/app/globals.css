@@ -11,6 +11,11 @@
     var(--accent1) 7.75%,
     var(--accent2) 98.44%
   );
+  /* Font sizes */
+  --fluid-h1: clamp(2rem, 1.6932rem + 1.3636vw, 2.75rem);
+  --fluid-h2: clamp(1.5rem, 1.142rem + 1.5909vw, 2.375rem);
+  --fluid-h3: clamp(1.25rem, 1.1477rem + 0.4545vw, 1.5rem);
+  --fluid-p: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
 }
 
 @theme inline {
@@ -28,27 +33,28 @@
 @layer components {
   /* Fonts */
   h1 {
-    font-size: 2.75rem;
+    font-size: var(--fluid-h1);
     font-weight: 700;
     letter-spacing: 7.5%;
     text-transform: uppercase;
   }
   h2 {
-    font-size: 2.375rem;
+    font-size: var(--fluid-h2);
     font-weight: 500;
     letter-spacing: 7.5%;
     text-transform: uppercase;
   }
 
   h3 {
-    font-size: 1.5rem;
+    font-size: var(--fluid-h3);
     font-weight: 500;
     letter-spacing: 2%;
+    text-transform: uppercase;
   }
 
   p,
   a {
-    font-size: 1.125rem;
+    font-size: var(--fluid-p);
     font-weight: 500;
     letter-spacing: 2%;
     text-decoration: none;
@@ -62,6 +68,11 @@
     .stackitem {
       grid-area: stack;
     }
+  }
+
+  .trim {
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
   }
 }
 

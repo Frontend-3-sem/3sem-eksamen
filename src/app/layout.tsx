@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${ubuntu.variable}  h-full antialiased`}>
-      <body className="min-h-1vh min-h-full selection:bg-accentDark selection:text-background">
+      <body className="min-h-1vh min-h-full">
         <Header />
         <main className="mx-4.5">{children}</main>
         <Footer />
