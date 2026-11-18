@@ -8,9 +8,11 @@
     "start": "next start"
   },
   "dependencies": {
+    "motion": "^14.14.0",
     "next": "16.4.6",
     "react": "19.3.0",
-    "react-dom": "19.3.0"
+    "react-dom": "19.3.0",
+    "react-router": "^8.5.1"
   },
   "devDependencies": {
     "@tailwindcss/turbopack": "4.3.3",
