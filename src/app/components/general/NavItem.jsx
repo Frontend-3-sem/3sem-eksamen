@@ -7,6 +7,7 @@ import { motion } from "motion/react";
 
 // Components
 import Logo from "./Logo";
+import BurgerMenu from "@/app/components/general/BurgerMenu";
 
 const SquareBefore =
   "before:content-[''] before:absolute before:top-0 before:left-0 before:h-1/2 before:aspect-square before:bg-accent1 before:[clip-path:polygon(0%_0%,100%_0%,0%_100%)]";
@@ -88,6 +89,7 @@ export function NavItem() {
         <FlipLink href="about">About</FlipLink>
         <FlipLink href="contact">Contact us</FlipLink>
       </ul>
+      <BurgerMenu />
     </nav>
   );
 }
