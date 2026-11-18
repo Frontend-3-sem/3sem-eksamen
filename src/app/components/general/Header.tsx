@@ -4,10 +4,12 @@
 
 // Components
 
+import { NavItem } from "@/app/components/general/NavItem";
+
 const Header = () => {
   return (
-    <div>
-      <h1>Header kommer her</h1>
+    <div className="flex justify-between gap-10 list-none font-bold sticky uppercase">
+      <NavItem />
     </div>
   );
 };
