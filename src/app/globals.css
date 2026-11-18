@@ -69,13 +69,21 @@
     margin-top: 1rem;
   }
 
-  p,
-  a {
+  p {
     font-size: var(--fluid-p);
     font-weight: 500;
     letter-spacing: 2%;
     text-decoration: none;
     color: var(--text);
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+  }
+
+  a {
+    font-size: var(--fluid-p);
+  }
+
+  .trim {
     text-box-trim: trim-both;
     text-box-edge: cap alphabetic;
   }

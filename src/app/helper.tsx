@@ -5,7 +5,12 @@ import { usePathname } from "next/navigation";
 
 // Components
 
-export const navigation = [
+export type NavigationItem = {
+  href: string;
+  name: string;
+};
+
+export const navigation: NavigationItem[] = [
   { href: "/", name: "Home" },
   { href: "/events", name: "Events" },
   { href: "/book", name: "Book Table" },
