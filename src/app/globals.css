@@ -84,14 +84,14 @@
   .pageheaderbg {
     background:
       linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.85) 100%),
-      url(../../public/footerbg.jpg);
+      url(../../public/assets/bg/footerbg.jpg);
     height: 100%;
     background-position-y: 40%;
   }
   .footerbg {
     background:
       linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.85) 100%),
-      url(../../public/footerbg.jpg);
+      url(../../public/assets/bg/footerbg.jpg);
     height: 100%;
     background-size: cover;
   }
