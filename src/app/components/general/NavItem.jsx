@@ -18,7 +18,7 @@ const SquareAfter =
 const DURATION = 0.2;
 const STAGGER = 0.025;
 
-const FlipLink = ({ href, children }) => {
+const AnimationLink = ({ href, children }) => {
   const isActivePath = useActivePath();
 
   return (
@@ -84,10 +84,10 @@ export function NavItem() {
     >
       <Logo />
       <ul className="hidden shrink-0 list-none items-center gap-4 whitespace-nowrap text-sm font-bold md:flex lg:gap-6 lg:text-base xl:gap-10">
-        <FlipLink href="/">Home</FlipLink>
-        <FlipLink href="events">Events</FlipLink>
-        <FlipLink href="about">About</FlipLink>
-        <FlipLink href="contact">Contact us</FlipLink>
+        <AnimationLink href="/">Home</AnimationLink>
+        <AnimationLink href="events">Events</AnimationLink>
+        <AnimationLink href="about">About</AnimationLink>
+        <AnimationLink href="contact">Contact us</AnimationLink>
       </ul>
       <BurgerMenu />
     </nav>
