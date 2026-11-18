@@ -3,8 +3,7 @@
 
 // Next
 import Link from "next/link";
-import { useActivePath } from "@/app/helper";
-import { navigation } from "@/app/helper";
+import { useActivePath, navigation } from "@/app/helper";
 
 // Components
 
