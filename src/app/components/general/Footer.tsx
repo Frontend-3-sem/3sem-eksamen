@@ -13,7 +13,7 @@ import FooterArticle from "./FooterArticle";
 
 const Footer = () => {
   return (
-    <footer className="m-6">
+    <footer className="m-6 footerbg pb-12 pt-16 px-8">
       <div className="grid lg:flex lg:gap-6 lg:justify-between">
         <div className="text-center md:text-left">
           <h2>Logo</h2>

@@ -6,10 +6,14 @@
   --accent1: oklch(65.3% 0.242 9.3);
   --accent2: oklch(55.9% 0.235 329.1);
   --subtle: oklch(34.1% 0 0);
-  --gradient: linear-gradient(
-    118deg,
-    var(--accent1) 7.75%,
-    var(--accent2) 98.44%
+  --gradient: 118deg, var(--accent1) 7.75%, var(--accent2) 98.44%;
+  --gradient-line:
+    90deg, rgba(217, 217, 217, 0) 0%, #ff2a70 50.94%,
+    rgba(217, 217, 217, 0) 99.99%;
+  --corner-shine: linear-gradient(
+    221deg,
+    #fff -4.33%,
+    rgba(255, 255, 255, 0) 18.74%
   );
   /* Font sizes */
   --fluid-h1: clamp(2rem, 1.6932rem + 1.3636vw, 2.75rem);
@@ -25,7 +29,6 @@
   --color-accent1: var(--accent1);
   --color-accent2: var(--accent2);
   --color-subtle: var(--subtle);
-
   /* Fonts */
   --font-all: var(--font-ubuntu);
 }
@@ -77,6 +80,22 @@
     text-box-edge: cap alphabetic;
   }
 
+  /* Specifics */
+  .pageheaderbg {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.85) 100%),
+      url(../../public/footerbg.jpg);
+    height: 100%;
+    background-position-y: 40%;
+  }
+  .footerbg {
+    background:
+      linear-gradient(180deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.85) 100%),
+      url(../../public/footerbg.jpg);
+    height: 100%;
+    background-size: cover;
+  }
+
   /* Utils */
   .stackcontainer {
     display: grid;
@@ -84,23 +103,6 @@
     .stackitem {
       grid-area: stack;
     }
-  }
-
-  .trim {
-    text-box-trim: trim-both;
-    text-box-edge: cap alphabetic;
-  }
-
-  .neon {
-    width: 200px;
-    height: 1px;
-    background-color: #fff;
-    box-shadow:
-      0 0 4px 4px #fff,
-      0 0 11px 11px #fff,
-      0 0 19px 19px #f09,
-      0 0 40px 40px #f09,
-      0 0 80px 80px #f09;
   }
 }
 
