@@ -1,5 +1,6 @@
 import EventCard from "./EventCard";
-
+import formatDate from "@/app/utils/formatDate";
+import formatTime from "@/app/utils/formatTime";
 export default async function AllEvents() {
   return (
     <>
@@ -12,7 +13,6 @@ export default async function AllEvents() {
 
 const FetchEvents = async () => {
   const url = `${process.env.NEXT_PUBLIC_API_URL}/events`;
-
   const response = await fetch(url);
   const events = await response.json();
 
@@ -26,8 +26,8 @@ const FetchEvents = async () => {
             src={`${process.env.NEXT_PUBLIC_API_URL}${event.asset.url}`}
             alt={event.asset.alt}
             title={event.title}
-            date={event.date}
-            open={event.doorsOpen}
+            date={formatDate(event.date)}
+            open={formatTime(event.doorsOpen)}
             location={event.location}
             description={event.description}
           />
