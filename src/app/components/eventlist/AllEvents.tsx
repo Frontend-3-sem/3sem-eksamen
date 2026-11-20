@@ -1,8 +1,15 @@
-import EventCard from "./EventCard";
+// Utils
 import formatDate from "@/app/utils/formatDate";
 import formatTime from "@/app/utils/formatTime";
-import Link from "next/link";
 import { div } from "motion/react-client";
+
+// Next
+import Link from "next/link";
+import { FaCaretLeft, FaCaretRight } from "react-icons/fa6";
+
+// Components
+import EventCard from "./EventCard";
+
 export default async function AllEvents({ page }) {
   return (
     <>
@@ -35,8 +42,18 @@ const FetchEvents = async ({ page }) => {
             description={event.description}
           />
         ))}
-        {page > 1 && <Link href={`?page=${page - 1}`}>Back</Link>}
-        {page < totalPages && <Link href={`?page=${page + 1}`}>Next</Link>}
+        <div className="flex justify-center gap-6 my-12">
+          {page > 1 && (
+            <Link href={`?page=${page - 1}`}>
+              <FaCaretLeft className="border-solid border-2 border-text size-10 p-2" />
+            </Link>
+          )}
+          {page < totalPages && (
+            <Link href={`?page=${page + 1}`}>
+              <FaCaretRight className="border-solid border-2 border-text size-10 p-2" />
+            </Link>
+          )}
+        </div>
       </section>
     </>
   );
