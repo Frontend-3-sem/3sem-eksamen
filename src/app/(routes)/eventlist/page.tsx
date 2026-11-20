@@ -10,7 +10,9 @@ export default async function EventList() {
   return (
     <>
       <PageHeader title="Events" />
-      <AllEvents />
+      <section>
+        <AllEvents />
+      </section>
     </>
   );
 }
