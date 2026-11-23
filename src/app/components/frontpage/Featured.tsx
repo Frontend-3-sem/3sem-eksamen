@@ -17,7 +17,6 @@ const FetchFeatured = async ({}) => {
   const response = await fetch(url);
   const events = await response.json();
   const isFeatured = events.filter((event) => event.isFeatured === true);
-  console.log(isFeatured);
 
   return (
     <>

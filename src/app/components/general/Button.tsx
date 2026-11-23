@@ -6,7 +6,7 @@ import { linearGradient } from "motion/react-client";
 
 // Components
 
-const Button = ({ children, variant = "primary" }) => {
+const Button = ({ type, children, variant = "primary" }) => {
   // Base styles shared by all buttons
   const baseStyles =
     "font-medium text-base uppercase tracking-[0.2em] w-35 h-12 cursor-pointer";
@@ -50,6 +50,7 @@ const Button = ({ children, variant = "primary" }) => {
         duration: 0.4,
       }}
       className={buttonClasses}
+      type={type}
     >
       {children}
       {variant === "primary" && (
