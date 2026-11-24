@@ -31,6 +31,8 @@ const FetchFeatured = async ({}) => {
             title={event.title}
             date={formatDate(event.date)}
             open={formatTime(event.doorsOpen)}
+            location={event.location}
+            excerpt={event.excerpt}
           />
         ))}
       </div>
