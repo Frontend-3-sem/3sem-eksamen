@@ -3,11 +3,14 @@ import "./globals.css";
 
 // Next
 import type { Metadata } from "next";
-import { Ubuntu } from "next/font/google";
+import { Ubuntu, Inter } from "next/font/google";
 
 // Components
 import Header from "../app/components/general/Header";
 import Footer from "../app/components/general/Footer";
+import { cn } from "@/lib/utils";
+
+const inter = Inter({subsets:['latin'],variable:'--font-sans'});
 
 const ubuntu = Ubuntu({
   variable: "--font-ubuntu",
@@ -22,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${ubuntu.variable}  h-full antialiased`}>
+    <html lang="en" className={cn("h-full", "antialiased", ubuntu.variable, "font-sans", inter.variable)}>
       <body className="min-h-1vh min-h-full">
         <Header />
         <main className="mx-4.5">{children}</main>
