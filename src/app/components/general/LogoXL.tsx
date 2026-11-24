@@ -20,7 +20,7 @@ const LogoXL = () => {
         <Image
           width={500}
           height={500}
-          src="/bottom_line.png"
+          src="/assets/bottom_line.png"
           alt="Neon pink line"
           loading="eager"
           className="h-auto w-80 sm:w-100 md:w-125 lg:w-150 xl:w-180 2xl:w-200 mt-2"
