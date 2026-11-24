@@ -43,7 +43,7 @@ const BurgerMenu = () => {
             popoverTargetAction="hide"
             aria-label="Close menu"
             className="fixed flex cursor-pointer -translate-x-1/2 -translate-y-1/2 items-center justify-center
-                     [position-anchor:--burger] [top:anchor(center)] [left:anchor(center)]"
+                     [position-anchor:--burger] [top-anchor(center)] [left-anchor(center)]"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

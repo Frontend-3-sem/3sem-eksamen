@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  --background: oklch(14% 0 0);
   --text: oklch(100% 0 0);
   --accent1: oklch(65.3% 0.242 9.3);
   --accent2: oklch(55.9% 0.235 329.1);
@@ -20,16 +19,15 @@
   --fluid-h2: clamp(1.5rem, 1.142rem + 1.5909vw, 2.375rem);
   --fluid-h3: clamp(1.25rem, 1.1477rem + 0.4545vw, 1.5rem);
   --fluid-p: clamp(1rem, 0.9489rem + 0.2273vw, 1.125rem);
+  --background: oklch(14% 0 0);
 }
 
 @theme inline {
-  /* Colors */
   --color-background: var(--background);
   --color-text: var(--text);
   --color-accent1: var(--accent1);
   --color-accent2: var(--accent2);
   --color-subtle: var(--subtle);
-  /* Fonts */
   --font-all: var(--font-ubuntu);
 }
 
@@ -115,7 +113,7 @@
 }
 
 body {
-  background: var(--background);
   color: var(--text);
   font-family: var(--font-all);
+  background-color: var(--background);
 }
