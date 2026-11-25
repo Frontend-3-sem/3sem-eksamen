@@ -46,7 +46,7 @@ const Newsletter = () => {
                 className="p-2 w-full focus:p-2"
               />
             </div>
-            <Button type="submit">
+            <Button type="submit" className="">
               {isPending ? "Subscribing" : "Subscribe"}
             </Button>
           </div>
