@@ -6,6 +6,7 @@
   --accent2: oklch(55.9% 0.235 329.1);
   --subtle: oklch(34.1% 0 0);
   --subtle-text: oklch(82% 0 0);
+  --form-placeholder: oklch(61.3% 0 0);
   --gradient: 118deg, var(--accent1) 7.75%, var(--accent2) 98.44%;
   --gradient-line:
     90deg, rgba(217, 217, 217, 0) 0%, #ff2a70 50.94%,
@@ -30,6 +31,7 @@
   --color-accent2: var(--accent2);
   --color-subtle: var(--subtle);
   --color-subtle-text: var(--subtle-text);
+  --color-form-placeholder: var(--form-placeholder);
   /* Fonts */
   --font-all: var(--font-ubuntu);
 }
