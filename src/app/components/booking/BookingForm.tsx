@@ -1,29 +1,30 @@
 "use client";
 // Utils
-import postContact from "@/app/utils/postContact";
-import { initialContactForm } from "@/app/schema/contactSchema";
+import postBooking from "@/app/utils/postBooking";
+import { initialBookingForm } from "@/app/schema/bookingSchema";
 
 // Next
 import { useActionState } from "react";
 import { useState, useEffect } from "react";
-import { FaAngleDown } from "react-icons/fa6";
 
 // Components
 import Button from "../general/Button";
 import EventSelect from "./EventSelect";
 
-const BookingForm = () => {
-  const [state, postContactAction, isPending] = useActionState(postContact, {
+const BookingForm = ({ events }) => {
+  const [state, postBookingAction, isPending] = useActionState(postBooking, {
     success: null,
     message: "",
   });
-  const [formFields, setFormFields] = useState(initialContactForm);
+  const [formFields, setFormFields] = useState(initialBookingForm);
 
   useEffect(() => {
-    if (state.success) setFormFields(initialContactForm);
+    if (state.success) setFormFields(initialBookingForm);
   }, [state]);
 
-  function handleClick(event) {
+  const selectedEvent = events.find((event) => event.id === formFields.eventId);
+
+  function handleChange(event) {
     const { name, value } = event.target;
 
     setFormFields((currentFields) => ({
@@ -31,11 +32,17 @@ const BookingForm = () => {
       [name]: value,
     }));
   }
+  function handleSelect(value) {
+    setFormFields((currentFields) => ({
+      ...currentFields,
+      eventId: value,
+    }));
+  }
   return (
     <>
       <section className="flex flex-col items-center pb-16">
         <h1 className="py-16 w-2/3">Book a Table</h1>
-        <form className="w-2/3" action={postContactAction}>
+        <form className="w-2/3" action={postBookingAction}>
           <div className="grid grid-cols-2 w-full gap-3">
             <div>
               <input
@@ -43,7 +50,7 @@ const BookingForm = () => {
                 name="name"
                 placeholder="Your Name"
                 value={formFields.name}
-                onChange={handleClick}
+                onChange={handleChange}
                 className="p-4 w-full border border-text focus:outline-0 focus:border-accent1"
               />
               {state.fieldErrors?.name?.[0] && (
@@ -56,7 +63,7 @@ const BookingForm = () => {
                 name="email"
                 placeholder="Your Email"
                 value={formFields.email}
-                onChange={handleClick}
+                onChange={handleChange}
                 className="p-4 w-full border border-text focus:outline-0 focus:border-accent1"
               />
               {state.fieldErrors?.email?.[0] && (
@@ -68,15 +75,15 @@ const BookingForm = () => {
             <div>
               <input
                 type="number"
-                name="tbNumber"
+                name="table"
                 placeholder="Table Number"
-                value={formFields.tbNumber}
-                onChange={handleClick}
+                value={formFields.table}
+                onChange={handleChange}
                 className="p-4 w-full border border-text focus:outline-0 focus:border-accent1"
               />
-              {state.fieldErrors?.tbNumber?.[0] && (
+              {state.fieldErrors?.table?.[0] && (
                 <p className="mt-2 text-accent1">
-                  {state.fieldErrors.tbNumber[0]}
+                  {state.fieldErrors.table[0]}
                 </p>
               )}{" "}
             </div>
@@ -86,7 +93,7 @@ const BookingForm = () => {
                 name="guests"
                 placeholder="Number of Guests"
                 value={formFields.guests}
-                onChange={handleClick}
+                onChange={handleChange}
                 className="p-4 w-full border border-text focus:outline-0 focus:border-accent1"
               />
               {state.fieldErrors?.guests?.[0] && (
@@ -95,34 +102,47 @@ const BookingForm = () => {
                 </p>
               )}{" "}
             </div>
-
-            <EventSelect />
-            {state.fieldErrors?.event?.[0] && (
-              <p className="mt-2 text-accent1">{state.fieldErrors.event[0]}</p>
-            )}
-            <input
-              type="tel"
-              name="tel"
-              placeholder="Your Phone Number"
-              value={formFields.tel}
-              onChange={handleClick}
-              className="p-4 w-full border border-text focus:outline-0 focus:border-accent1"
-            />
-            {state.fieldErrors?.tel?.[0] && (
-              <p className="mt-2 text-accent1">{state.fieldErrors.tel[0]}</p>
-            )}
-            <textarea
-              name="comment"
-              id="comment"
-              placeholder="Your Comment"
-              value={formFields.comment}
-              onChange={handleClick}
-              className="p-4 w-full border border-text focus:outline-0 focus:border-accent1 min-h-50 col-span-2"
-            ></textarea>
-            {state.fieldErrors?.comment?.[0] && (
-              <p className="text-accent1">{state.fieldErrors.comment[0]}</p>
-            )}
-            <div className="grid grid-cols-2 w-full items-center">
+            <div>
+              <EventSelect
+                events={events}
+                value={formFields.eventId}
+                onSelectChange={handleSelect}
+              />
+              {state.fieldErrors?.eventId?.[0] && (
+                <p className="mt-2 text-accent1">
+                  {state.fieldErrors.eventId[0]}
+                </p>
+              )}{" "}
+            </div>
+            <div>
+              <input
+                type="tel"
+                name="phone"
+                placeholder="Your Phone Number"
+                value={formFields.phone}
+                onChange={handleChange}
+                className="p-4 w-full border border-text focus:outline-0 focus:border-accent1"
+              />
+              {state.fieldErrors?.phone?.[0] && (
+                <p className="mt-2 text-accent1">
+                  {state.fieldErrors.phone[0]}
+                </p>
+              )}
+            </div>
+            <div className="col-span-2">
+              <textarea
+                name="content"
+                id="content"
+                placeholder="Your Comment"
+                value={formFields.content}
+                onChange={handleChange}
+                className="p-4 w-full border border-text focus:outline-0 focus:border-accent1 min-h-50"
+              ></textarea>
+              {state.fieldErrors?.content?.[0] && (
+                <p className="text-accent1">{state.fieldErrors.content[0]}</p>
+              )}
+            </div>
+            <div className="col-span-2 grid grid-cols-2 w-full items-center">
               {state?.message && (
                 <p
                   className={`${state.success ? "text-text" : "text-accent1"}`}
@@ -130,11 +150,16 @@ const BookingForm = () => {
                   {state.message}
                 </p>
               )}
+              <Button type="submit" className="col-start-2 justify-self-end">
+                {isPending ? "Reserving" : "Reserve"}
+              </Button>
             </div>
-            <Button type="submit" className="col-start-2 justify-self-end">
-              {isPending ? "Reserving" : "Reserve"}
-            </Button>
           </div>
+          <input
+            type="hidden"
+            name="date"
+            value={selectedEvent ? selectedEvent.date : ""}
+          />
         </form>
       </section>
     </>
