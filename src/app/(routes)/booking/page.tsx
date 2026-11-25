@@ -3,13 +3,13 @@
 // Next
 
 // Components
-import BookForm from "@/app/components/book/BookForm";
+import BookingForm from "@/app/components/booking/BookingForm";
 
 const Book = () => {
   return (
     <>
       <div>
-        <BookForm />
+        <BookingForm />
       </div>
     </>
   );

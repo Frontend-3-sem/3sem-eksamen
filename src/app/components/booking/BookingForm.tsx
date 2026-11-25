@@ -12,7 +12,7 @@ import { FaAngleDown } from "react-icons/fa6";
 import Button from "../general/Button";
 import EventSelect from "./EventSelect";
 
-const BookForm = () => {
+const BookingForm = () => {
   const [state, postContactAction, isPending] = useActionState(postContact, {
     success: null,
     message: "",
@@ -141,4 +141,4 @@ const BookForm = () => {
   );
 };
 
-export default BookForm;
+export default BookingForm;
