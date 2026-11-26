@@ -10,19 +10,38 @@ import { useState, useEffect } from "react";
 // Components
 import Button from "../general/Button";
 import EventSelect from "./EventSelect";
+import TableOverview from "./TableOverview";
 
 const BookingForm = ({ events }) => {
+  // States
+
   const [state, postBookingAction, isPending] = useActionState(postBooking, {
     success: null,
     message: "",
   });
   const [formFields, setFormFields] = useState(initialBookingForm);
+  const [reservations, setReservations] = useState([]);
 
   useEffect(() => {
     if (state.success) setFormFields(initialBookingForm);
   }, [state]);
 
+  useEffect(() => {
+    if (!formFields.eventId) {
+      return;
+    }
+    const reservationUrl = `${process.env.NEXT_PUBLIC_API_URL}/reservations?eventId=${formFields.eventId}`;
+    async function fetchReservations() {
+      const response = await fetch(reservationUrl);
+      const eventReservations = await response.json();
+      setReservations(eventReservations);
+    }
+    fetchReservations();
+  }, [formFields.eventId]);
+
   const selectedEvent = events.find((event) => event.id === formFields.eventId);
+
+  // Eventhandlers
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -38,8 +57,20 @@ const BookingForm = ({ events }) => {
       eventId: value,
     }));
   }
+
+  function handleTableSelect(tableId) {
+    setFormFields((currentFields) => ({
+      ...currentFields,
+      table: tableId,
+    }));
+  }
   return (
     <>
+      <TableOverview
+        onTableSelect={handleTableSelect}
+        selectedTable={formFields.table}
+        reservations={reservations}
+      />
       <section className="flex flex-col items-center pb-16">
         <h1 className="py-16 w-2/3">Book a Table</h1>
         <form className="w-2/3" action={postBookingAction}>
@@ -85,7 +116,7 @@ const BookingForm = ({ events }) => {
                 <p className="mt-2 text-accent1">
                   {state.fieldErrors.table[0]}
                 </p>
-              )}{" "}
+              )}
             </div>
             <div>
               <input
@@ -100,7 +131,7 @@ const BookingForm = ({ events }) => {
                 <p className="mt-2 text-accent1">
                   {state.fieldErrors.guests[0]}
                 </p>
-              )}{" "}
+              )}
             </div>
             <div>
               <EventSelect

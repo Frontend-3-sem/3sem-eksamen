@@ -111,6 +111,16 @@
     order: -1;
   }
 
+  .reservedTable {
+    &:nth-child(1) {
+      filter: opacity(50%);
+    }
+
+    p {
+      color: var(--accent1);
+    }
+  }
+
   /* Utils */
   .stackcontainer {
     display: grid;
