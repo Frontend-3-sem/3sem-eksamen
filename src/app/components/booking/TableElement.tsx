@@ -15,7 +15,7 @@ const TableElement = ({
   return (
     <>
       <button
-        className={`stackcontainer ${isSelected ? "underline decoration-accent1" : ""} ${reserved ? "cursor-default" : "cursor-pointer"}`}
+        className={`stackcontainer ${reserved ? "cursor-default" : "cursor-pointer"}`}
         onClick={() => onTableSelect(tableId)}
         disabled={reserved}
       >
@@ -27,10 +27,19 @@ const TableElement = ({
           className={`stackitem h-full w-auto place-self-center ${className} ${reserved ? "opacity-35" : ""}`}
         ></Image>
         <p
-          className={`stackitem place-self-center ${reserved ? "text-accent1" : ""}`}
+          className={`stackitem place-self-center ${isSelected ? "text-2xl underline decoration-accent1 underline-offset-4" : ""} ${reserved ? "text-accent1" : ""}`}
         >
           {tableId}
         </p>
+        {reserved && (
+          <Image
+            width={300}
+            height={200}
+            src={`/assets/table/reserved.svg`}
+            alt="This table is reserved"
+            className={`stackitem h-full w-4/5 place-self-center z-10`}
+          ></Image>
+        )}
       </button>
     </>
   );

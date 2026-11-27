@@ -11,8 +11,9 @@ import { useState, useEffect } from "react";
 import Button from "../general/Button";
 import EventSelect from "./EventSelect";
 import TableOverview from "./TableOverview";
+import TableSelect from "./TableSelect";
 
-const BookingForm = ({ events }) => {
+const BookingForm = ({ events, tables }) => {
   // States
 
   const [state, postBookingAction, isPending] = useActionState(postBooking, {
@@ -70,6 +71,7 @@ const BookingForm = ({ events }) => {
         onTableSelect={handleTableSelect}
         selectedTable={formFields.table}
         reservations={reservations}
+        tables={tables}
       />
       <section className="flex flex-col items-center pb-16">
         <h1 className="py-16 w-2/3">Book a Table</h1>
@@ -104,13 +106,10 @@ const BookingForm = ({ events }) => {
               )}{" "}
             </div>
             <div>
-              <input
-                type="number"
-                name="table"
-                placeholder="Table Number"
+              <TableSelect
+                tables={tables}
                 value={formFields.table}
-                onChange={handleChange}
-                className="p-4 w-full border border-text focus:outline-0 focus:border-accent1"
+                onTableChange={handleTableSelect}
               />
               {state.fieldErrors?.table?.[0] && (
                 <p className="mt-2 text-accent1">
