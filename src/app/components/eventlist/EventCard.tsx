@@ -38,7 +38,9 @@ const EventCard = ({
           </div>
           <p className="text-subtle-text mb-16">{description}</p>
           <div className="flex justify-end">
-            <Button variant="primary">Read More</Button>
+            <Button type="" className="" variant="primary">
+              Read More
+            </Button>
           </div>
         </div>
       </article>

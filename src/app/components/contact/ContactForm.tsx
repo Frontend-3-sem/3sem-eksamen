@@ -26,7 +26,7 @@ const ContactForm = () => {
   return (
     <>
       <section className="flex flex-col items-center pb-16">
-        <form className="flex flex-col gap-4 w-1/2" action={postContactAction}>
+        <form className="flex flex-col gap-4 w-2/3" action={postContactAction}>
           <input
             type="text"
             name="name"

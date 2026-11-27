@@ -1,0 +1,43 @@
+<svg width="260" height="158" viewBox="0 0 260 158" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="49" y="49" width="161" height="59" fill="#181818"/>
+<rect x="65" y="120" width="35" height="37.5" fill="#181818"/>
+<mask id="stroke0_2355_585" fill="white">
+<path d="M65 120H100V157.5H65V120Z"/>
+</mask>
+<path d="M100 157.5V151.5H65V157.5V163.5H100V157.5Z" fill="#383838" mask="url(#stroke0_2355_585)"/>
+<rect x="112" y="120" width="35" height="37.5" fill="#181818"/>
+<mask id="stroke1_2355_585" fill="white">
+<path d="M112 120H147V157.5H112V120Z"/>
+</mask>
+<path d="M147 157.5V151.5H112V157.5V163.5H147V157.5Z" fill="#383838" mask="url(#stroke1_2355_585)"/>
+<rect x="159" y="120" width="35" height="37.5" fill="#181818"/>
+<mask id="stroke2_2355_585" fill="white">
+<path d="M159 120H194V157.5H159V120Z"/>
+</mask>
+<path d="M194 157.5V151.5H159V157.5V163.5H194V157.5Z" fill="#383838" mask="url(#stroke2_2355_585)"/>
+<rect x="65" width="35" height="37.5" fill="#181818"/>
+<mask id="stroke3_2355_585" fill="white">
+<path d="M65 0H100V37.5H65V0Z"/>
+</mask>
+<path d="M65 0V6H100V0V-6H65V0Z" fill="#383838" mask="url(#stroke3_2355_585)"/>
+<rect x="112" width="35" height="37.5" fill="#181818"/>
+<mask id="stroke4_2355_585" fill="white">
+<path d="M112 0H147V37.5H112V0Z"/>
+</mask>
+<path d="M112 0V6H147V0V-6H112V0Z" fill="#383838" mask="url(#stroke4_2355_585)"/>
+<rect x="159" width="35" height="37.5" fill="#181818"/>
+<mask id="stroke5_2355_585" fill="white">
+<path d="M159 0H194V37.5H159V0Z"/>
+</mask>
+<path d="M159 0V6H194V0V-6H159V0Z" fill="#383838" mask="url(#stroke5_2355_585)"/>
+<rect x="222" y="61" width="37.5" height="35" fill="#181818"/>
+<mask id="stroke6_2355_585" fill="white">
+<path d="M222 96V61H259.5V96H222Z"/>
+</mask>
+<path d="M259.5 61H253.5V96H259.5H265.5V61H259.5Z" fill="#383838" mask="url(#stroke6_2355_585)"/>
+<rect y="61" width="37.5" height="35" fill="#181818"/>
+<mask id="stroke7_2355_585" fill="white">
+<path d="M0 96L0 61H37.5V96H0Z"/>
+</mask>
+<path d="M0 96H6L6 61H0H-6L-6 96H0Z" fill="#383838" mask="url(#stroke7_2355_585)"/>
+</svg>
