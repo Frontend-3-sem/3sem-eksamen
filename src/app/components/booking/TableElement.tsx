@@ -15,8 +15,8 @@ const TableElement = ({
   return (
     <>
       <button
-        className={`stackcontainer ${reserved ? "cursor-default" : "cursor-pointer"}`}
-        onClick={() => onTableSelect(tableId)}
+        className={`stackcontainer hover:underline hover:decoration-accent1 hover:underline-offset-4 ${reserved ? "cursor-default" : "cursor-pointer"}`}
+        onClick={() => onTableSelect(tableId, "bookingh1")}
         disabled={reserved}
       >
         <Image

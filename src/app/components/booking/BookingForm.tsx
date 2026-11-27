@@ -59,11 +59,13 @@ const BookingForm = ({ events, tables }) => {
     }));
   }
 
-  function handleTableSelect(tableId) {
+  function handleTableSelect(tableId, id: string) {
     setFormFields((currentFields) => ({
       ...currentFields,
       table: tableId,
     }));
+    const element = document.getElementById(id);
+    element?.scrollIntoView({ behavior: "smooth" });
   }
   return (
     <>
@@ -74,7 +76,9 @@ const BookingForm = ({ events, tables }) => {
         tables={tables}
       />
       <section className="flex flex-col items-center pb-16">
-        <h1 className="py-16 w-2/3">Book a Table</h1>
+        <h1 id="bookingh1" className="py-16 w-2/3">
+          Book a Table
+        </h1>
         <form className="w-2/3" action={postBookingAction}>
           <div className="grid grid-cols-2 w-full gap-3">
             <div>

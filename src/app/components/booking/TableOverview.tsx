@@ -13,7 +13,7 @@ const TableOverview = ({
 }) => {
   return (
     <>
-      <section className="grid grid-cols-5 gap-y-16">
+      <section className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 md:gap-12 lg:gap-16 my-16">
         {tables.map((table) => {
           const isReserved = reservations.some(
             (reservation) => Number(reservation.table) === table.tableId,
